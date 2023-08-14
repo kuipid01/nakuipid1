@@ -5,7 +5,7 @@ import { useState } from "react";
 
 import 'animate.css/animate.min.css'
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import Dropzone from "react-dropzone";
+
 import axios from "axios";
 import "./form.scss";
 import upload from "../../utils/upload";
