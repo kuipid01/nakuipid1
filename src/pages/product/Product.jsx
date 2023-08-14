@@ -117,7 +117,7 @@ else{
           </p>
             </span> 
 
-            <button onClick={ () =>  handleCartAdd(mainProductData)}>Add to CArt</button>
+            <div className="addtocartproduct" onClick={ () =>  handleCartAdd(mainProductData)}>Add to CArt</div>
           </div>
           <div className="share">
             <AiOutlineFacebook />
