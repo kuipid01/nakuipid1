@@ -6,7 +6,7 @@ import Register from "./pages/register/Register";
 import Footer from "./components/footer/Footer";
 import Login from "./pages/login/Login";
 import Home from "./pages/home/Home";
-import Userprofile from "./pages/Userprofile/Userprofile";
+import Userprofile from "./pages/userprofile/Userprofile";
 import Shop from "./pages/shop/Shop";
 import {
   createBrowserRouter,
