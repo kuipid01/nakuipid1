@@ -18,9 +18,7 @@ import "animate.css/animate.min.css";
 const Navbar = () => {
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   const [navmobileOpen, setNavmobileOpen] = useState(false);
-useEffect(() => {
-  console.log('yes')
-}, [currentUser])
+
   const toggleComponent = () => {
     setNavmobileOpen((prevState) => !prevState);
   };
@@ -133,7 +131,7 @@ useEffect(() => {
                   <AiOutlineSearch className="searchIcon" />
                   
                   <div className="cart">
-                    <span>3</span>
+                  <span>{cart.length}</span>
                     <BsHandbag className="shopIcon" />
                   </div>
                  

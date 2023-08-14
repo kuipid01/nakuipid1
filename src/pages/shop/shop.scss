@@ -69,6 +69,7 @@ padding:1rem 4rem;
             color: white;
             cursor: pointer;
             font-weight: 400;
+            justify-content: center;
             text-transform: uppercase;
             width: fit-content;
             @media (max-width:540px) {
@@ -101,7 +102,10 @@ select{
         display: flex;
         width: 100%;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-between;
         gap: 20px;
+        @media (max-width:500px) {
+         gap: 7px;
+                   }
     }
 }

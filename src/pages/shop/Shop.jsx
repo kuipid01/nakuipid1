@@ -17,21 +17,24 @@ const Shop = () => {
     // For example, update your product list based on the sort value
   };
   const minRef = useRef();
+   const [loadingRefetch, setLoadingRefetch] = useState(false);
   const maxRef = useRef();
   const { search } = useLocation();
   const { isLoading, error, data, refetch } = useQuery({
     queryKey: ["productsData"],
     queryFn: () =>
       newRequest
-        .get(
-          `/products`
-        )
+      .get(
+        `/products?${search}&min=${minRef.current.value}&max=${maxRef.current.value}`
+      )
         .then((res) => {
           return res.data;
         }),
   });
   const apply = () => {
+    setLoadingRefetch(true)
     refetch();
+    setLoadingRefetch(false)
   };
   return (
     <div className="productsContainer2">
@@ -70,8 +73,7 @@ const Shop = () => {
 
       <div className="containerProduct">
         {isLoading
-          ? <Loader/>
-          : error
+          ? <Loader/>  : data.length===0? 'No products match this search' : error
           ? "An Error Occured "
           : data.map((product) => (
               

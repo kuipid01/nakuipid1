@@ -22,9 +22,8 @@ const Products = () => {
   const { isLoading, error, data, refetch } = useQuery({
     queryKey: ["productsData"],
     queryFn: () =>
-      newRequest
-        .get(
-          `/products${search}&min=${minRef.current.value}&max=${maxRef.current.value}`
+      newRequest.get(
+          `/products?${search}&min=${minRef.current.value}&max=${maxRef.current.value}`
         )
         .then((res) => {
           return res.data;

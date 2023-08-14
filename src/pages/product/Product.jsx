@@ -19,6 +19,7 @@ const Product = () => {
 
   const { id } = useParams();
   const [toBedisplayed, setToBedisplayed] = useState(0);
+  const [newqty, setQty] = useState(1);
   // Fetch the main product data
   const {  isLoading, error,data: mainProductData } = useQuery({
     queryKey: ["product", id],
@@ -26,7 +27,8 @@ const Product = () => {
       newRequest.get(`/products/single/${id}`).then((res) => res.data),
   });
   const handleIncreaseCartQty = (product) => {
-    console.log("clicked");
+   
+    setQty(p => p+1)
     setCart((prevState) =>
       prevState.map((item) =>
         item._id === product._id ? { ...item, qty: item.qty + 1 } : item
@@ -34,7 +36,7 @@ const Product = () => {
     );
   };
   const handleDecreaseCartQty = (product) => {
-    console.log("clicked");
+    setQty(p => p===1 ? 1: p-1)
     setCart((prevState) =>
       prevState.map((item) =>
         item._id === product._id
@@ -54,27 +56,28 @@ const Product = () => {
   const {cart,setCart} = useContext(CartContext)
  
 const handleCartAdd  = (product) => {
+ 
 const existingItem = cart.find((item) => item._id === product._id)
 if (existingItem) {
   setCart(prevState => prevState.map((item) =>
-  item._id===product._id ? {...item, qty : item.qty+1 } : item
+  item._id===product._id ? {...item, qty : newqty} : item
   ))
 }
 
 else{
-  setCart([{...product,qty:1}, ...cart])
+  setCart([{...product,qty:newqty}, ...cart])
 }
 }
-  const thistProductQty = cart.map(item => {
-    if (item._id===mainProductData._id) {
-      if (item.qty) {
-        return item.qty
-      }
-      else return null 
-    }
-   else return null
-  })
- 
+//   const thistProductQty = cart.map(item => {
+//     if (item._id===mainProductData._id) {
+//       if (item.qty) {
+//         return item.qty
+//       }
+//       else return null 
+//     }
+//    else return null
+//   })
+//  console.log(thistProductQty)
   if (isLoading || !id)  return <Loader/>
   return (
     <div className="singleProductContainer">
@@ -99,13 +102,13 @@ else{
           <p className="description">{mainProductData?.description}</p>
           <div className="cart">
             <span className="productspan">  
-            <p
-            className="qty"
-            onClick={() => handleDecreaseCartQty(mainProductData)}
-          >
-            -
-           
-          </p>{" "} {thistProductQty ? thistProductQty : 1}
+            <p className="qty"
+            onClick={() => handleDecreaseCartQty(mainProductData)} >
+            - </p>
+            <p> {newqty}  </p>
+             
+         
+         
           <p
             className="qty"
             onClick={() => handleIncreaseCartQty(mainProductData)}
