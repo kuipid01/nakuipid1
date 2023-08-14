@@ -74,9 +74,9 @@ const Products = () => {
           : error
           ? "An Error Occured "
           : data.map((product) => (
-              <div key={product._id} className="productCard">
-                <Card product={product} />
-              </div>
+   
+                <Card key={product._id} product={product} />
+           
             ))}
       </div>
     </div>

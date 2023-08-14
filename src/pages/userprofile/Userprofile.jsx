@@ -126,10 +126,10 @@ const Userprofile = () => {
         {isLoading
           ? "Loading"
           : error
-          ? "An Error Occured "
+          ? "An Error Occured " : data.length===0 ? 'No Product yet. Add product if you are a seller '
           : data.map((product) => (
             
-                <Card  key={product._id} product={product} />
+               <Card  key={product._id} product={product} />
             
             ))}
       </div> 
@@ -140,7 +140,7 @@ const Userprofile = () => {
         (styles, item) =>
           item && (
          <animated.div style={styles}>
-       <AddProductForm/>
+       <AddProductForm formOpen={formOpen} setFormOpen={setFormOpen}/>
       </animated.div>
       )
      )} 

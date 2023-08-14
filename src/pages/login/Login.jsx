@@ -10,7 +10,9 @@ import {
   AiOutlineTwitter,
 } from "react-icons/ai";
 import newRequest from "../../utils/newRequest";
+import Loader from "../../components/Loader/Loader";
 const Login = () => {
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -19,13 +21,14 @@ const Login = () => {
     
     e.preventDefault();
     try {
-      
+      setLoading(true)
       const res = await newRequest.post("/auth/login", {
         username,
         password,
       });
       localStorage.setItem("currentUser", JSON.stringify(res.data));
       navigate("/");
+      setLoading(false)
     } catch (err) {
       setError(err.response.data);
    
@@ -39,7 +42,8 @@ const Login = () => {
         {" "}
         <p className="logo">Nakuipid</p>
       </Link>
-
+      {
+      loading?<Loader/>: 
       <div className="lgincontainer">
         <div className="handle">
           <input
@@ -91,7 +95,7 @@ const Login = () => {
             <AiOutlineTwitter />
           </div>
         </div>
-      </div>
+      </div>}
     </div>
   );
 };

@@ -14,7 +14,7 @@
   height: 350px;
   margin-bottom: 1rem;
   @media (max-width:758px) {
-    width: 30%;
+    width: 28%;
  
      height: 200px;
            }
@@ -52,7 +52,7 @@
               font-weight: 300;
               text-align: center;
               @media (max-width:448px) {
-                font-size: 12px;
+                font-size: 10px;
                 text-overflow: ellipsis;
                        }
             }
@@ -60,7 +60,7 @@
               font-weight: normal;
               font-size: 25px;
                @media (max-width:448px) {
-                 font-size: 15px;
+                 font-size: 12px;
                         }
             }
             .user{
@@ -69,8 +69,9 @@
              gap: 10px;
              align-items: center;
               margin-bottom: 10px;
-              @media (max-width:448px) {
+              @media (max-width:548px) {
                 font-size: 12px;
+                display: none;
                 text-overflow: ellipsis;
                        }
              img{

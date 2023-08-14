@@ -33,7 +33,7 @@ useEffect(() => {
   });
   return (
     <div className="navContainer">
-      <Link className="navlink" to="/">
+      <Link  onClick={() => setNavmobileOpen(false)} className="navlink" to="/">
         <h1 className="logo">NaKuipid</h1>
       </Link>
 

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
@@ -12,7 +13,7 @@ import upload from "../../utils/upload";
 import newRequest from "../../utils/newRequest";
 import { AiOutlineClose } from "react-icons/ai";
 import Loader from "../Loader/Loader";
-const AddProductForm = () => {
+const AddProductForm = ({setFormOpen}) => {
       const currentUser = JSON.parse(localStorage.getItem('currentUser'))
   const queryClient = useQueryClient();
   const [loading, setLoading] = useState(false);
@@ -69,7 +70,7 @@ setOtherImages([])
 setPrice("")
 setCoverImage(undefined)
 setSelectedFiles
-
+setFormOpen(false)
       setLoading(false)
     //   setOtherImages([])
     } catch (error) {

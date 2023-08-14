@@ -68,7 +68,7 @@ justify-content: space-between;
                     flex-direction: column;
 .title{
     font-size: 15px;
-    font-weight: 300;
+    font-weight: 700;
 }
 .qty{
     display: flex;
@@ -107,8 +107,8 @@ justify-content: space-between;
                         text-transform: capitalize;
 
                         @media (max-width:700px) {
-                            font-size: 15px;
-                            font-weight: 700;
+                            font-size: 12px;
+                            font-weight: 300;
                         }
                     }
 
@@ -117,6 +117,7 @@ justify-content: space-between;
                         font-weight: 200;
                          @media (max-width:700px) {
                             font-size: 12px;
+                            display: none;
                            
                         }
                     }

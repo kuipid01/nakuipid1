@@ -75,7 +75,7 @@ else{
    else return null
   })
  
-  if (isLoading)  return <Loader/>
+  if (isLoading || !id)  return <Loader/>
   return (
     <div className="singleProductContainer">
       <div className="containerdisplay">

@@ -11,6 +11,7 @@ import axios from "axios";
 import newRequest from "../../utils/newRequest";
 import upload from "../../utils/upload";
 import { Link, useNavigate } from "react-router-dom";
+import Loader from "../../components/Loader/Loader";
 const Register = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -19,16 +20,19 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isSeller, setIsSeller] = useState(false);
   const [userImage,setUserImage] = useState(null);
+   const [loading, setLoading] = useState(false);
 const [inputLabel, setInputLabel] = useState(false)
   const handleSignUp = async () => {
     // Handle sign-up logic here
     console.log("Sign up with:", email, password);
     const url = await upload(userImage)
     try {
+         setLoading(true)
       await newRequest.post("/auth/register",{
         email,username,password,isSeller,userImage:url,
       })
      navigate("/login")
+     setLoading(false)
     } catch (error) {
       console.log(error)
     }
@@ -63,7 +67,8 @@ const handleImage = () => {
         <div className="blur"></div>
         <div className="registration-page">
           <h1 className="registration-title">Sign Up</h1>
-          <form className="registration-form">
+          {
+      loading?<Loader/>:   <form className="registration-form">
           <div className="form-group">
       <label className={`placeholder ${email ? 'active' : ''}`}> Email: </label>
       <input
@@ -135,7 +140,7 @@ const handleImage = () => {
             </button>
 
           </form>
-       
+       }
         </div>
       </div>
     </div>
