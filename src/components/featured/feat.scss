@@ -1,0 +1,54 @@
+.featureContainer {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    position: relative;
+    z-index: 1000;
+    background-color: white;
+  justify-content: center;
+  @media (max-width:808px) {
+height: max-content;
+              }
+    .title {
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+    }
+  
+    .productContainer {
+      display: flex;
+      width: 97%;
+      flex-direction: column;
+      overflow-x: hidden;
+
+ 
+      .container {
+        display: flex;
+        transition: transform 0.3s ease-in-out;
+        width: 100%; /* Set 100% width for the container */
+  
+       
+      }
+    }
+  
+    .mover {
+      margin: 0 auto;
+      display: flex;
+      gap: 10px;
+  
+      span {
+        width: 10px;
+        height: 10px;
+        background: rgb(117, 116, 116);
+        border-radius: 50%;
+        cursor: pointer;
+  
+        &.active {
+          background: blue;
+        }
+      }
+    }
+  }
+  

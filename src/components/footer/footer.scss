@@ -1,0 +1,134 @@
+.footercontainer {
+    width: 100%;
+    padding: 2rem;
+    height: max-content;
+    background: #dfdfdf;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+margin-top: 5rem;
+    @media (max-width:900px) {
+        padding: 0;
+
+    }
+
+    .links {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        width: 100%;
+        height: max-content;
+
+        @media (max-width:900px) {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            padding: 0 1rem;
+
+
+        }
+
+        .section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            @media (max-width:900px) {
+
+                gap: 7px;
+
+
+            }
+
+            h1 {
+                font-size: 17px;
+            }
+
+            ul {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                list-style: none;
+
+                @media (max-width:900px) {
+
+                    gap: 5px;
+
+
+                }
+
+                li {
+                    font-weight: 300;
+                    color: rgb(70, 70, 70);
+                }
+            }
+        }
+
+        .section.last {
+            .paymentimgs {
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+
+                div {
+                    display: flex;
+
+                    gap: 10px;
+
+                    img {
+                        width: 70px;
+                        height: 70px;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+    }
+
+    .footericons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: max-content;
+        padding: 2rem 0;
+        border-top: solid 1px rgb(60, 60, 60);
+
+        @media (max-width:900px) {
+            padding: 1rem;
+            font-size: 10px;
+
+        }
+
+        div {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+
+            @media (max-width:900px) {
+                gap: 3px;
+                font-size: 15px;
+
+            }
+
+            p {
+                font-size: 15px;
+                color: black;
+
+                @media (max-width:900px) {
+                    gap: 3px;
+                    font-size: 10px;
+
+                }
+            }
+
+            font-size: 30px;
+            color: rgb(39, 39, 39);
+            cursor: pointer;
+button{
+    padding: 5px 20px;
+    border: solid 1px red;
+    cursor: pointer;
+}
+        }
+    }
+}

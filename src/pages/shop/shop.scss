@@ -1,0 +1,107 @@
+.productsContainer2{
+    min-height: 100vh;
+    margin-top: 5rem;
+padding:1rem 4rem;
+@media (max-width:800px) {
+    padding: 1rem 1rem;
+ 
+    }
+    .budget2{
+        font-weight: 300;
+        height:70px;
+        width: max-content;
+        display: flex;
+        align-items: center;
+        gap: 3px;
+      width: 100%;
+      
+      justify-content: space-between;
+      color: rgb(34, 33, 33);
+       @media (max-width:900px) {
+       height: fit-content;
+         flex-direction: column;
+         align-items: flex-start;
+      gap: 1rem;
+     
+         }
+        .sortNumber{
+            display: flex;
+            gap: 10px;
+            margin-top: 1rem;
+            height: 100%;
+            align-items: center;
+            @media (max-width:540px) {
+                height: fit-content;
+                }
+            .inputBoxesContainer{
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                @media (max-width:540px) {
+                    display: flex;
+                    flex-direction: column;
+                    }
+                    .boxdirect{
+                        display: flex;
+                        gap: 10px;
+                        height: 100%;
+                        input{
+                            height: fit-content;
+                            padding: 10px;
+                            border: solid 1px gray;
+                            border-radius: 5px;
+                            outline: none;
+                            color: rgb(34, 33, 33);
+                            border:solid 1px gray;
+                            width: 50%;
+                           
+                        }
+                    }
+                    div.restrictbtn{
+          display: flex;
+          height: fit-content;
+          align-items: center;
+                        padding:5px 20px;
+            background: rgb(0, 0, 0);
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            color: white;
+            cursor: pointer;
+            font-weight: 400;
+            text-transform: uppercase;
+            width: fit-content;
+            @media (max-width:540px) {
+              width: 100%;
+                }
+                    }
+            }
+        }
+       
+  
+        .sort{
+display: flex;
+gap: 10px;
+align-items: center;
+select{
+    border:solid 1px gray;
+    height:30px;
+    padding:0 20px;
+    border-radius: 5px;
+  
+    option{
+        border:solid 1px gray;
+        cursor: pointer;
+    }
+}
+        }
+    }
+    .containerProduct{
+        margin-top: 4rem;
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+}

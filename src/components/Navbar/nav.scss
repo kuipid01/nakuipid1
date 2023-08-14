@@ -1,0 +1,187 @@
+.navContainer{
+    width: 100%;
+    margin: 0  auto;
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+    align-items: center;
+    // position: relative;
+    z-index: 145000;
+    top: 0;
+    left: 0;
+    color: white;
+    background: black;
+    position: fixed;
+    padding: 1rem 2rem;
+    @media (max-width:900px) {
+    width: 100%;
+    padding: 0 2rem;
+    }
+    ul{
+        display: flex;
+        list-style: none;
+        gap: 15px;
+        align-items: center;
+       img{
+        width: 30px;
+        height:30px;
+        border-radius: 50%;
+        object-fit: cover;
+        cursor: pointer;
+       }
+        .phone{
+            margin-left: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+        }
+        @media (max-width:900px) {
+            gap: 5px;
+            display: none;
+            font-size: 15px;
+        }
+    }
+    .loginContainer{
+        display: flex;
+        gap: 40px;
+        @media (max-width:900px) {
+            gap: 10px;
+           
+        }
+        @media (max-width:648px) {
+          display: none;
+            }
+        .language{
+            display: flex;
+          gap: 10px;
+          .naira{
+            display: flex;
+            align-items: center;
+  cursor: pointer;
+            gap: 10px;
+            
+         .icon{
+            font-size: 10px;
+        
+         }
+          }
+        }
+  .search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+   .searchIcon,.shopIcon{
+    font-size: 20px;
+   }
+   .cart{
+    position: relative;
+    span{
+        font-size: 10px;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: red;
+        border-radius: 50%;
+        position: absolute;
+        top: -40%;
+        right: -50%;
+    }
+    .shopIcon{
+        position: relative;
+    }
+   }
+  }
+    }
+    .menu{
+        font-size: 20px;
+        cursor: pointer;
+        display: none;
+        @media (max-width:900px) {
+          display: flex;
+           
+        }
+    }
+    .navmobile{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: fit-content;
+        background: #000;
+        z-index: 10000;
+      padding: 1rem;
+       
+        ul{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: end;
+        }
+        .loginContainer{
+            display: flex;
+           gap: 10px;
+           flex-direction: column;
+            .language{
+                display: flex;
+                flex-direction: column;
+              gap: 10px;
+              .naira{
+                display: none;
+            
+                flex-direction: column;
+      cursor: pointer;
+                gap: 10px;
+                
+             .icon{
+                font-size: 10px;
+            
+             }
+              }
+            }
+      .search{
+        display: flex;
+        align-items: center;
+        justify-content: end;
+       margin-top: 2rem;
+        position: relative;
+        .searchIcon{
+            display: none;
+        }
+       .searchIcon,.shopIcon{
+        font-size: 20px;
+       }
+       .cart{
+      
+     
+        span{
+            font-size: 10px;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: red;
+            border-radius: 50%;
+            position: absolute;
+            top: -40%;
+            right: -50%;
+        }
+        .shopIcon{
+            position: relative;
+        }
+       }
+       &::before{
+        content: 'Cart';
+        position: absolute;
+        left: 83%;
+       
+    }
+      }
+        }
+    }
+}
+

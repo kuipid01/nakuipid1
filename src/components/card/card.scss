@@ -1,0 +1,136 @@
+.cardfeatured {
+  flex: 0 0 calc(100% / 6 - 10px); /* Set fixed width for each card */
+  margin-right: 10px;
+  @media (max-width:648px) {
+ flex: 0 0 calc(100%  / 2 - 8px);
+           }
+}
+.cardmainContainer{
+
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  // background: #000;
+  height: 350px;
+  margin-bottom: 1rem;
+  @media (max-width:758px) {
+    width: 30%;
+ 
+     height: 200px;
+           }
+           .acard{
+ 
+            width: 100%;
+            height: 90%;
+            display: flex;
+            .cardContainer{
+              width: 100%;
+               margin: 0  auto;
+               display: flex;
+           flex-direction: column;
+              height: 100%;
+               align-items: center;
+               position: relative;
+               z-index: 1000;
+               gap: 15px;
+               box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+             cursor: pointer;
+               margin-bottom: 1rem;
+               @media (max-width:448px) {
+                 gap: 5px;
+                        }
+            img{
+           width: 100%;
+           height: 65%;
+           object-fit: cover;
+           object-position: center;
+           border-top-right-radius: 5px;
+           border-top-left-radius: 5px;
+           z-index: -1;
+            };
+            .Cardtitle{
+              font-weight: 300;
+              text-align: center;
+              @media (max-width:448px) {
+                font-size: 12px;
+                text-overflow: ellipsis;
+                       }
+            }
+            h1{
+              font-weight: normal;
+              font-size: 25px;
+               @media (max-width:448px) {
+                 font-size: 15px;
+                        }
+            }
+            .user{
+             width: 100%;
+             display: flex;
+             gap: 10px;
+             align-items: center;
+              margin-bottom: 10px;
+              @media (max-width:448px) {
+                font-size: 12px;
+                text-overflow: ellipsis;
+                       }
+             img{
+               width: 30px;
+               height: 30px;
+               border-radius: 50%;
+               @media (max-width:448px) {
+              display: none;
+                        }
+             }
+            }
+           // Styles for the button
+           
+           
+           }
+        
+}
+.btnCard {
+  display: flex ;
+ width: 100%;
+//  height: 100px;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+ border: none;
+ border-radius: 3px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  transition: background 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+outline: none;
+z-index: 10;
+padding: 10px 0;
+@media (max-width:448px) {
+  font-size: 10px;
+  text-overflow: ellipsis;
+         }
+  // Styles for the gradient animation
+
+  &:hover {
+    background-color: white;
+    color: black;
+    font-size: 16px;
+   border: solid 1px black;
+   @media (max-width:448px) {
+    font-size: 10px;
+    text-overflow: ellipsis;
+           }
+   
+  }
+}
+
+}
+
+.linkcard{
+  color: black;
+  text-decoration: none;
+  font-size: 20px;
+  
+}

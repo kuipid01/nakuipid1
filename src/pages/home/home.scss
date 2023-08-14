@@ -1,0 +1,155 @@
+.homeContainer {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    color: white;
+
+    .imgBgOverlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        object-fit: contain;
+        object-position: left;
+    }
+
+    .imgOverlay {
+        position: absolute;
+        background: #000000f5;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+
+    }
+
+    .textContainer {
+        position: relative;
+        display: flex;
+        margin: 0 auto;
+        width: 80%;
+        height: 85vh;
+
+        .img {
+            width: fit-content;
+            height: fit-content;
+            right: 50%;
+            top: -5%;
+            position: absolute;
+
+            @media (max-width:900px) {
+                top: 30%;
+            }
+
+            @media (max-width:700px) {
+                top: 15%;
+                right: 90%;
+            }
+
+            img {
+                width: 600px;
+                position: absolute;
+z-index: 1;
+opacity: .4;
+                height: 600px;
+                object-fit: contain;
+                object-position: center;
+
+                @media (max-width:900px) {
+                    width: 400px;
+                    height: 400px;
+                }
+            }
+        }
+
+        .text {
+            position: relative;
+            margin: auto 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+z-index: 100;
+            justify-content: center;
+            align-items: start;
+            width: 70%;
+            @media (max-width:900px) {
+               width: 100%;
+            }
+            button {
+                width: fit-content;
+                height: fit-content;
+                padding: 10px 70px;
+                outline: none;
+                border: none;
+                background: #ffffff;
+                color: rgb(0, 0, 0);
+                text-transform: uppercase;
+                font-size: 18px;
+                font-weight: 300;
+                border-radius: 4px;
+                transition: background 0.5s ease-in-out;
+                margin-top: 2rem;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: black;
+                    color: white;
+
+                    border: solid 1px white;
+
+
+                }
+            }
+
+            p {
+                font-size: 40px;
+            }
+
+            h1 {
+                font-size: 66px;
+                font-weight: bolder;
+                text-transform: uppercase;
+            }
+        }
+
+    }
+
+    .chngeImgcontainer {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 200px;
+        height: 70px;
+        display: flex;
+        z-index: 2000;
+
+        .one,
+        .two {
+            width: 50%;
+            height: 100%;
+            margin-right: 10px;
+            cursor: pointer;
+
+            &:hover {
+                border: solid 1px wheat;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .active {
+            border: solid 1px wheat;
+        }
+
+    }
+}

@@ -1,0 +1,38 @@
+.categoriesContainer {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+height: fit-content;
+   .container{
+    display: flex;
+    margin: 0 auto;
+    gap: 15px;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+        .productCard
+        {
+         @media (max-width:648px) {
+        width: 45%;
+               }
+            }
+   }
+   .title{
+    text-align: center;
+   }
+   .linkcontainer{
+   margin: 0 auto;
+    display: flex;
+    
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    h1{
+      font-size: 30px;
+      font-weight: 500;
+
+    }
+   }
+  }
+  
