@@ -77,10 +77,10 @@ const Card = ({ product ,featured}) => {
     
     </div>
     </Link>
-      <button className="btnCard" onClick={() =>handleAddToCart(product)}>
+      <div className="btnCard" onClick={() =>handleAddToCart(product)}>
         {" "}
         <AiFillContainer /> Add to cart
-      </button>
+      </div>
     </div>
     </>
   );
