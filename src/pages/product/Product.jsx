@@ -65,7 +65,7 @@ if (existingItem) {
   ))
  toast.success('Cart Item Increased Visit Cart to Checkout!', {
       position: toast.POSITION.BOTTOM_LEFT,
-      autoClose: 5000,
+      autoClose: 1000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
