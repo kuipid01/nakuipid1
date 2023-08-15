@@ -83,7 +83,7 @@ setFormOpen(false)
     //   setOtherImages([])
     } catch (error) {
       setError(error)
-      console.log(error)
+      console.log(error.message)
       toast.error(error, {
         position: toast.POSITION.BOTTOM_LEFT,
         autoClose: 5000,
