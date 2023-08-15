@@ -63,6 +63,16 @@ if (existingItem) {
   setCart(prevState => prevState.map((item) =>
   item._id===product._id ? {...item, qty : item.qty+1} : item
   ))
+ toast.success('Cart Item Increased Visit Cart to Checkout!', {
+      position: toast.POSITION.BOTTOM_LEFT,
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
   const ProductHere = cart.filter((item) => item._id === product._id);
 setQty(ProductHere[0].qty)
 }
