@@ -56,6 +56,7 @@ const [inputLabel, setInputLabel] = useState(false)
         progress: undefined,
         theme: "colored",
         });
+        setLoading(false)
     }
   };
   const handleLabel =  () => {

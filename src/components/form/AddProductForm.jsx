@@ -84,8 +84,8 @@ setFormOpen(false)
       });
     //   setOtherImages([])
     } catch (error) {
-      console.error("Error uploading images:", error);
-      toast.error('Error adding product please fill every thing and try again or contact administrator', {
+      
+      toast.error(error, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -95,6 +95,7 @@ setFormOpen(false)
         progress: undefined,
         theme: "colored",
         });
+        setLoading(false)
     }
 
   

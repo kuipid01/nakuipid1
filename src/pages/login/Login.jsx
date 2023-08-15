@@ -43,7 +43,17 @@ const Login = () => {
       setLoading(false)
     } catch (err) {
       setError(err.response.data);
-   
+      setLoading(false)
+      toast.error(err.response.data, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
     }
   };
   return (
