@@ -131,7 +131,7 @@ setFormOpen(false)
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
-{error && <h1>{error}</h1>}
+{/* {error && <h1>{error}</h1>} */}
       <input
         type="number"
         name="price"
@@ -184,7 +184,7 @@ setFormOpen(false)
         />
       </div>
 
-      <button type="submit">Add Product</button>
+      <button type="submit" style={{marginTop:'10px'}}>Add Product</button>
     </form>
     }
  
