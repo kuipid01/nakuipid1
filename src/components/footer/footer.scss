@@ -124,10 +124,14 @@ margin-top: 5rem;
             font-size: 30px;
             color: rgb(39, 39, 39);
             cursor: pointer;
-button{
+.logOut{
     padding: 5px 20px;
     border: solid 1px red;
     cursor: pointer;
+    @media (max-width:900px) {
+        padding: 3px 10px;
+font-size: 10px;
+    }
 }
         }
     }

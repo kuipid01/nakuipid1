@@ -85,7 +85,7 @@ const Footer = () => {
             </p>  
 <div>
     <p>Follow our socials</p>
-   { currentUser && <button onClick={handleLogout}>Logout</button>}
+   { currentUser && <div className='logOut' onClick={handleLogout}>Logout</div>}
 <AiOutlineFacebook/>
 <AiOutlineTwitter/>
 <AiFillInstagram/>

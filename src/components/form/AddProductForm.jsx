@@ -46,6 +46,7 @@ const AddProductForm = ({setFormOpen}) => {
         // setSelectedFiles((prevUrls) => [...prevUrls, urls]);
       const url = await upload(coverImage);
     // //  console.log(selectedFiles)
+    console.log(currentUser._id, currentUser._id)
           await newRequest.post("/products", {
             title,
             userId: currentUser._id,

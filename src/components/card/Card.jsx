@@ -18,7 +18,7 @@ import { ToastContainer, toast } from 'react-toastify';
 const Card = ({ product, featured }) => {
   const [qty, setQty] = useState(1);
   const { isLoading, error, data } = useQuery({
-    queryKey: ["user", product.userId], // Use a descriptive string as the first element
+    queryKey: ["user", product.userId],  //Use a descriptive string as the first element
     queryFn: () =>
       newRequest.get(`/users/${product.userId}`).then((res) => {
         return res.data;
@@ -91,53 +91,102 @@ const Card = ({ product, featured }) => {
 
   const { title, description, price, category, coverImage, stock } = product;
   return (
-    <>
-     <ToastContainer />
-      <div className={`cardmainContainer ${featured ? "cardfeatured" : ""} `}>
-        <Link to={`/product/${product._id}`} className="linkcard acard">
-          <div className="cardContainer">
-            <img src={coverImage} alt="" />
-            {/* <div className='stars'></div> */}
-            <p className="Cardtitle">{title}</p>
-            <h1>{price}</h1>
-            {isLoading ? (
-              "Loading"
-            ) : error ? (
-              "An Error Occured "
-            ) : (
-              <Link
-                to={`/profile/userid/${product.userId}`}
-                className="linkcard"
-              >
-                {" "}
-                <div className="user">
-                  {" "}
-                  <img src={data?.userImage} alt="" />{" "}
-                  <span>{data?.username} </span>{" "}
-                </div>
-              </Link>
-            )}
-          </div>
-        </Link>
-        {productIsInCart ? (
-          <span className="productspan">
-            <p className="qty" onClick={() => handleDecreaseCartQty(product)}>
-              -{" "}
-            </p>
-            <p> {qty}</p>
+    // <>
+    //  <ToastContainer />
+    //   <div className={`cardmainContainer ${featured ? "cardfeatured" : ""} `}>
+    //     <Link to={`/product/${product._id}`} className="linkcard acard">
+    //       <div className="cardContainer">
+    //         <img src={coverImage} alt="" />
+    //         {/* <div className='stars'></div> */}
+    //         <p className="Cardtitle">{title}</p>
+    //         <h1>{price}</h1>
+    //         {isLoading ? (
+    //           "Loading"
+    //         ) : error ? (
+    //           "An Error Occured "
+    //         ) : (
+    //           <Link
+    //             to={`/profile/userid/${product.userId}`}
+    //             className="linkcard"
+    //           >
+    //             {" "}
+    //             <div className="user">
+    //               {" "}
+    //               <img src={data?.userImage} alt="" />{" "}
+    //               <span>{data?.username} </span>{" "}
+    //             </div>
+    //           </Link>
+    //         )}
+    //       </div>
+    //     </Link>
+    //     {productIsInCart ? (
+    //       <span className="productspan">
+    //         <p className="qty" onClick={() => handleDecreaseCartQty(product)}>
+    //           -{" "}
+    //         </p>
+    //         <p> {qty}</p>
 
-            <p className="qty" onClick={() => handleIncreaseCartQty(product)}>
-              +
-            </p>
-          </span>
-        ) : (
-          <div className="btnCard" onClick={() => handleAddToCart(product)}>
-            {" "}
-            <AiFillContainer /> Add to cart
-          </div>
-        )}
-      </div>
-    </>
+    //         <p className="qty" onClick={() => handleIncreaseCartQty(product)}>
+    //           +
+    //         </p>
+    //       </span>
+    //     ) : (
+    //       <div className="btnCard" onClick={() => handleAddToCart(product)}>
+    //         {" "}
+    //         <AiFillContainer /> Add to cart
+    //       </div>
+    //     )}
+    //   </div>
+    // </>
+    <div className="cardItemContainer">
+<Link to={`/product/${product._id}`}  className="cardItem" style={{textDecoration:'none', color:"black",display:"flex"}}>
+<img src={coverImage} className="cardImage" alt="" />
+<div className="maindesc">
+<div className="ProductCardtext">
+<p className="Cardtitle">{title.slice(0,25)}..</p>
+            <h1 className="cardPrice">{price}</h1>
+</div>
+<div className="CarduserProfile">
+
+  <div>
+     {isLoading ? (
+               "Loading"
+             ) : error ? (
+               "An Error Occured "
+             ) : (
+              <Link to={`/profile/userid/${product.userId}`}
+              className="linkcard"  style={{textDecoration:"none", gap:"20px", display:"flex", color:"black"}}
+                         >
+                 {" "}
+                 <img src={data?.userImage} alt="" />
+                 <span>{data?.username} </span>
+               
+               </Link>
+             )}
+   
+  </div>
+
+</div>
+</div>
+
+</Link>
+     {productIsInCart ? (
+           <span className="productspan">
+             <p className="qty" onClick={() => handleDecreaseCartQty(product)}>
+               -{" "}
+             </p>
+             <p> {qty}</p>
+
+             <p className="qty" onClick={() => handleIncreaseCartQty(product)}>
+               +
+             </p>
+           </span>
+         ) : (
+          <div onClick={() => handleAddToCart(product)} className="cardBtn">  <AiFillContainer />  Add to cart</div>
+            
+         )}
+
+    </div>
   );
 };
 
