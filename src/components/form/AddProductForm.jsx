@@ -26,7 +26,7 @@ const AddProductForm = ({setFormOpen}) => {
   const [deliveryFee, setDeliveryFee] = useState(0);
   const [category, setCategory] = useState("");
   const [otherImages, setOtherImages] = useState([]);
-
+  const [error, setError] = useState("");
   const handleOtherImagesChange = (e) => {
     const existingImage = otherImages.find(item => item.name===e.name)
 
@@ -84,7 +84,7 @@ setFormOpen(false)
       });
     //   setOtherImages([])
     } catch (error) {
-      
+      setError(error)
       toast.error(error, {
         position: "top-right",
         autoClose: 5000,
@@ -104,6 +104,7 @@ setFormOpen(false)
   return (
     <>
    <div className='formContainer'>
+   <ToastContainer />
     {
       loading?<Loader/>:  <form className="form" onSubmit={handleSubmit}>
       <input
@@ -130,7 +131,7 @@ setFormOpen(false)
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
-
+{error && <h1>{error}</h1>}
       <input
         type="number"
         name="price"
