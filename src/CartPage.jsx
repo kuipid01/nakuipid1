@@ -5,9 +5,13 @@ import { useState, useContext, useEffect } from "react";
 // import { UserContext } from "../contexts/UserContext";
 import { CartContext } from "./contexts/CartContext";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+
 import MainLoader from "./components/MainLoader";
 // import SmallLoading from "../components/SmallLoading";
 const CartPage = () => {
+  <ToastContainer />
     const currentUser = JSON.parse(localStorage.getItem('currentUser'))
   const [email, setEmail] = useState("kuipid@gmail.com");
   const [name, setName] = useState("Stephen Adegoke");
@@ -20,8 +24,18 @@ const CartPage = () => {
   const [Btnloading, setBtnloading] = useState(false);
   const removeFromeCart = (id) => {
     const newCart = cart.filter((p) => p.product.id !== id);
-
+    toast.error('Item removed !', {
+      position: toast.POSITION.BOTTOM_LEFT,
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
     setCart(newCart);
+   
   };
   useEffect(() => {
     setSubTotal(
@@ -57,7 +71,7 @@ const CartPage = () => {
       setloading(false);
     }, 1000);
   }, []);
-  console.log(cart);
+
   const [amount, setAmount] = useState("");
   //  const config = {
   //    public_key: "FLWPUBK_TEST-cf4564e4f7931f5cc9f23aa36942617c-X",
@@ -96,6 +110,7 @@ const CartPage = () => {
   if (loading) return <MainLoader />;
   return (
     <div className="relative  w-full mt-10 flex flex-col sm:flex-row px-10 h-fit min-h-[50vh]">
+      <ToastContainer />
       <div className="w-full  sm:w-[70%] h-full sm:mr-6">
         <div>
           <h1> Cart:</h1>

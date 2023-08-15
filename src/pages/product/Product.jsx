@@ -8,7 +8,8 @@ import {
 } from "react-icons/ai";
 import { sampleEcommerceProducts } from "../../constants";
 import Card from "../../components/card/Card";
-
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 import { useQuery } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest";
 import { useParams } from "react-router-dom";
@@ -60,12 +61,24 @@ const handleCartAdd  = (product) => {
 const existingItem = cart.find((item) => item._id === product._id)
 if (existingItem) {
   setCart(prevState => prevState.map((item) =>
-  item._id===product._id ? {...item, qty : newqty} : item
+  item._id===product._id ? {...item, qty : item.qty+1} : item
   ))
+  const ProductHere = cart.filter((item) => item._id === product._id);
+setQty(ProductHere[0].qty)
 }
 
 else{
   setCart([{...product,qty:newqty}, ...cart])
+    toast.success('Added to cart Succesfully!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
 }
 }
 //   const thistProductQty = cart.map(item => {
@@ -81,6 +94,7 @@ else{
   if (isLoading || !id)  return <Loader/>
   return (
     <div className="singleProductContainer">
+        <ToastContainer />
       <div className="containerdisplay">
         <div className="leftcontainer">
         <motion.div

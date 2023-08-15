@@ -6,7 +6,8 @@ import { useState } from "react";
 
 import 'animate.css/animate.min.css'
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
 import "./form.scss";
 import upload from "../../utils/upload";
@@ -25,8 +26,7 @@ const AddProductForm = ({setFormOpen}) => {
   const [deliveryFee, setDeliveryFee] = useState(0);
   const [category, setCategory] = useState("");
   const [otherImages, setOtherImages] = useState([]);
-  
-  console.log(otherImages)
+
   const handleOtherImagesChange = (e) => {
     const existingImage = otherImages.find(item => item.name===e.name)
 
@@ -72,9 +72,29 @@ setCoverImage(undefined)
 setSelectedFiles
 setFormOpen(false)
       setLoading(false)
+        toast.success('Product has been created sucessfully!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
     //   setOtherImages([])
     } catch (error) {
       console.error("Error uploading images:", error);
+      toast.error('Error adding product please fill every thing and try again or contact administrator', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
     }
 
   

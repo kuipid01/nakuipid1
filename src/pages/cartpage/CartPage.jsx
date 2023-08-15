@@ -2,6 +2,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useEffect, useState } from "react";
 import "./cartpage.scss";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 import { CartContext } from "../../contexts/CartContext";
 import { AiOutlineClose, AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { Link } from "react-router-dom";
@@ -18,6 +20,16 @@ const CartPage = () => {
     const filteredCart = cart.filter((item) => item._id !== product._id);
 
     setCart(filteredCart);
+    toast.info('Item removed from cart  Succesfully!', {
+      position: toast.POSITION.BOTTOM_LEFT,
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
   };
   const handleIncreaseCartQty = (product) => {
     console.log("clicked");
@@ -101,6 +113,7 @@ const CartPage = () => {
 
   return (
     <div className="cartpagecontainer">
+           <ToastContainer />
       <div className="cartContainer">
        {cart.length!==0 ? (cart?.map((item) => (
           <CartItem product={item} key={item._id} />

@@ -13,6 +13,8 @@ import { useQuery } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../contexts/CartContext";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 const Card = ({ product, featured }) => {
   const [qty, setQty] = useState(1);
   const { isLoading, error, data } = useQuery({
@@ -50,7 +52,7 @@ const Card = ({ product, featured }) => {
       //   } : item
       //     ))
       const ProductHere = cart.filter((item) => item._id === product._id);
-      console.log(ProductHere);
+
       setProductIsInCart(true);
       setQty(ProductHere[0].qty);
     } else {
@@ -65,6 +67,16 @@ const Card = ({ product, featured }) => {
       },
       ...cart,
     ]);
+    toast.success('Added to cart Succesfully!', {
+      position: toast.POSITION.BOTTOM_LEFT,
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
   };
   // const existingItem = cart.find((item) => item._id === product._id)
   // if (existingItem) {
@@ -80,6 +92,7 @@ const Card = ({ product, featured }) => {
   const { title, description, price, category, coverImage, stock } = product;
   return (
     <>
+     <ToastContainer />
       <div className={`cardmainContainer ${featured ? "cardfeatured" : ""} `}>
         <Link to={`/product/${product._id}`} className="linkcard acard">
           <div className="cardContainer">

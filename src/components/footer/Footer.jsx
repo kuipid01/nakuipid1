@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 import newRequest from '../../utils/newRequest'
 import './footer.scss'
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 import {AiOutlineFacebook,AiOutlineTwitter,AiFillInstagram} from 'react-icons/ai'
 const Footer = () => {
     const navigate = useNavigate()
@@ -11,12 +13,22 @@ const Footer = () => {
     localStorage.setItem("currentUser", null)
    
 
-
+    toast.info('Logged out Succesfully!', {
+        position: toast.POSITION.BOTTOM_LEFT,
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
     navigate("/")
     window.location.reload();
  }
   return (
     <div className='footercontainer'>
+      <ToastContainer />
         <div className="links">
             <div className='section'>
                 <h1>Policy Info</h1>

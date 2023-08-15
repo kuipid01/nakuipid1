@@ -11,6 +11,8 @@ import axios from "axios";
 import newRequest from "../../utils/newRequest";
 import upload from "../../utils/upload";
 import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 import Loader from "../../components/Loader/Loader";
 const Register = () => {
   const navigate = useNavigate();
@@ -24,7 +26,7 @@ const Register = () => {
 const [inputLabel, setInputLabel] = useState(false)
   const handleSignUp = async () => {
     // Handle sign-up logic here
-    console.log("Sign up with:", email, password);
+   
     const url = await upload(userImage)
     try {
          setLoading(true)
@@ -32,9 +34,28 @@ const [inputLabel, setInputLabel] = useState(false)
         email,username,password,isSeller,userImage:url,
       })
      navigate("/login")
+     toast.success('Registration Succesful!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
      setLoading(false)
     } catch (error) {
-      console.log(error)
+      toast.error('An error occured fill in all input fields and try again!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
     }
   };
   const handleLabel =  () => {
@@ -45,6 +66,7 @@ const handleImage = () => {
 }
   return (
     <div className="registerContainer">
+         <ToastContainer />
       <img src="/assets/registerBg.jpg" alt="" />
       <div className="overlay"></div>
       <div className="leftContainer">

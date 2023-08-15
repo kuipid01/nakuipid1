@@ -11,6 +11,8 @@ import {
 } from "react-icons/ai";
 import newRequest from "../../utils/newRequest";
 import Loader from "../../components/Loader/Loader";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -27,6 +29,16 @@ const Login = () => {
         password,
       });
       localStorage.setItem("currentUser", JSON.stringify(res.data));
+        toast.success('Login in successful', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
       navigate("/");
       setLoading(false)
     } catch (err) {
@@ -36,6 +48,7 @@ const Login = () => {
   };
   return (
     <div className="login">
+         <ToastContainer />
       <img className="imgBgOverlay" src="/assets/img8.png" alt="" />
       <div className="blackOverlay"></div>
       <Link to="/" style={{color:"white", textDecoration:'none'}}>
