@@ -30,7 +30,7 @@ const Login = () => {
       });
       localStorage.setItem("currentUser", JSON.stringify(res.data));
         toast.success('Login in successful', {
-      position: "top-right",
+       position: toast.POSITION.BOTTOM_LEFT,
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
@@ -45,7 +45,7 @@ const Login = () => {
       setError(err.response.data);
       setLoading(false)
       toast.error(err.response.data, {
-        position: "top-right",
+         position: toast.POSITION.BOTTOM_LEFT,
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,

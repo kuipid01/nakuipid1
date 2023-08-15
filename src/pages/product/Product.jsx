@@ -70,7 +70,7 @@ setQty(ProductHere[0].qty)
 else{
   setCart([{...product,qty:newqty}, ...cart])
     toast.success('Added to cart Succesfully!', {
-      position: "top-right",
+      position: toast.POSITION.BOTTOM_LEFT,
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,

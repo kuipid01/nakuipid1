@@ -38,8 +38,6 @@ const AddProductForm = ({setFormOpen}) => {
 // console.log(otherImages)
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-   
     try {
       setLoading(true)
         const uploadPromises = otherImages.map((file) => upload(file));
@@ -73,7 +71,7 @@ setSelectedFiles
 setFormOpen(false)
       setLoading(false)
         toast.success('Product has been created sucessfully!', {
-      position: "top-right",
+      position: toast.POSITION.BOTTOM_LEFT,
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
@@ -86,7 +84,7 @@ setFormOpen(false)
     } catch (error) {
       setError(error)
       toast.error(error, {
-        position: "top-right",
+        position: toast.POSITION.BOTTOM_LEFT,
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -184,7 +182,7 @@ setFormOpen(false)
         />
       </div>
 
-      <button type="submit" style={{marginTop:'10px'}}>Add Product</button>
+      <button type="submit" style={{marginTop:'20px'}}>Add Product</button>
     </form>
     }
  
